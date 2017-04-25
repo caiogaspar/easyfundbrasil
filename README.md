@@ -8,10 +8,10 @@ Easyfund Project is an idea of website to raise money to charities/good causes b
 ### Start server
 `node app`
 
-###Requirements
+### Requirements
 - Node.JS (minimum version 0.10.x)
 - NPM
 - MySQL (minimum version 5.2)
 
-## Autor
+## Author
 Caio Gaspar -- caio1309@gmail.com
