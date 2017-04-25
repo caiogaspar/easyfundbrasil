@@ -1,0 +1,17 @@
+<%- include ../header.ejs %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/findbar.css" />
+<script type="text/javascript" src="/javascripts/handlebars.js"></script>
+<script type="text/javascript" src="/javascripts/typeahead.js"></script>
+<script type="text/javascript" src="/javascripts/findbar.js"></script>
+    <div class="container">        
+    	<div class="container-busca-causa">
+	        <div id="the-basics">
+	        	<h1>Encontre uma causa e comece a ajuda-la agora mesmo!</h1>
+	            <form method="GET" action="/causas/causas-encontradas" id="encontre-causa">
+	                <input class="typeahead form-control" name="q" type="text" placeholder="Encontre sua causa...">
+	                <button class="btn btn-primary" type="submit">Buscar</button>
+	        	</form>
+	        </div>
+	    </div>
+    </div>
+<%- include ../footer.ejs %>

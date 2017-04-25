@@ -1,0 +1,149 @@
+<%- include ../header.ejs %>
+<script type="text/javascript" src="/javascripts/causas.js"></script>
+<script type="text/javascript">
+window.onload = function() {            
+    new dgCidadesEstados({
+      estado: document.getElementById('sg_uf_endereco_causa'),
+      cidade: document.getElementById('nm_cidade_endereco_causa'),
+      estadoVal : "<%= dados.sg_uf_endereco_causa %>",
+      cidadeVal: "<%= dados.nm_cidade_endereco_causa %>"
+    });
+};
+</script>
+<div class="container container-apoiador"> 
+<div class="row">                       
+    <div class="col-xs-12">        
+        <% if (typeof dados !== 'undefined') {%>
+            <%- include menu-causa.ejs %>
+        <% } %>
+        <div class="col-xs-7">   
+            <div class="col-xs-12 box-title">                
+                <h3>Edição de Dados</h3>                
+            </div>
+            <form action="/causas/editar-dados" id="edit-causa" method="POST" enctype="multipart/form-data">    
+                <input type="hidden" name="causa_id" value="<%= dados.id %>" />                              
+                <div class="col-xs-12">                
+                    <div class="form-group">
+                        <label for="nm_causa">Nome</label>
+                        <input type="text" name="nm_causa" id="nm_causa" class="form-control" tabindex="1" value="<%= dados.nm_causa %>" />                                
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                    <label for="nm_email_usuario">Email</label>
+                        <input type="text" name="nm_email_usuario" id="nm_email_usuario" class="form-control" tabindex="2" value="<%= dados.Usuario.nm_email_usuario %>" />                                
+                    </div>
+                </div>                                        
+                
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label class="cd_categoria_causa">Selecione a categoria da sua causa:</label>
+                        <select name="categoria_causa_id" id="categoria_causa_id" class="form-control">
+                            <option value="">Selecione uma categoria</option>                       
+                            <% categorias.forEach(function(categoria, index) { %>
+                            <option value="<%= categoria.id %>" <% if (categoria.id == dados.categoria_causa_id) { %>
+                                selected
+                                <% } %> > <%= categoria.nm_categoria_causa %> </option>
+                            <% }); %>
+                        </select>
+                    </div>  
+                </div> 
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="qt_apoiadores_causa">Selecione a quantidade de pessoas que apoiam a sua causa:</label>
+                        <select name='qt_apoiadores_causa' id="qt_apoiadores_causa" class="form-control">
+                            <option value="Menos que 100" <% if (dados.qt_apoiadores_causa == "Menos que 100") { %>selected <% } %> >
+                                Menos que 100
+                            </option>
+                            <option value="De 100 à 200" <% if (dados.qt_apoiadores_causa == "De 100 à 200") { %>selected <% } %> >
+                                De 100 à 200
+                            </option>
+                            <option value="De 200 à 500" <% if (dados.qt_apoiadores_causa == "De 200 à 500") { %>selected <% } %> >
+                                De 200 à 500
+                            </option>
+                            <option value="De 500 à 1000" <% if (dados.qt_apoiadores_causa == "De 500  à 1000") { %>selected <% } %> >
+                                De 500  à 1000
+                            </option>
+                            <option value="De 1000 à 5000" <% if (dados.qt_apoiadores_causa == "De 1000 à 5000") {  %> selected <% } %> >
+                                De 1000 à 5000
+                            </option>
+                            <option value="Mais de 5000" <% if (dados.qt_apoiadores_causa == "Mais de 500") { %>selected <% } %> >
+                                Mais de 500
+                            </option>
+                        </select>
+                    </div>             
+                </div>                                    
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="ds_causa">Descrição da causa:</label>
+                        <textarea name="ds_causa" id="ds_causa" class="form-control"><%= dados.ds_causa %></textarea>
+                    </div>                
+                </div>                                    
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="nm_site_causa">Site:</label>
+                        <input type="text" name="nm_site_causa" id="nm_site_causa" class="form-control" value="<%= dados.nm_site_causa %>" />
+                    </div>                
+                </div>    
+                <div class="col-xs-12">                          
+                    <div class="col-xs-3" align="center"> <img alt="User Pic" src="<% if (dados.nm_logo_causa != '') { %> /uploads/causas/<%= dados.nm_logo_causa %> <% } else { %>http://goodbuylist.com/images/NoPhoto_user.png <% } %>" class="img-circle profile-photo" /> </div>
+                    <div class="col-xs-9">
+                        <div class="form-group">
+                            <label for="nm_logo_causa">Logo:</label>
+                            <input type="file" name="nm_logo_causa" id="nm_logo_causa" class="form-control" />
+                        </div>                
+                    </div>                    
+                </div>                                        
+                <div class="col-xs-12">                                                             
+                    <div class="form-group">
+                        <label for="cd_cep_causa" class="label-cep">CEP:</label>
+                        <input type="text" name="cd_cep_causa" id="cd_cep_causa" maxlength="10" class="form-control cep"
+                        value="<%= dados.cd_cep_causa %>" />
+                    </div>                                    
+                </div>                                         
+                <div class="col-xs-9">
+                    <div class="form-group">
+                        <label for="nm_endereco_causa">Endereço:</label>
+                        <input type="text" name="nm_endereco_causa" id="nm_endereco_causa" class="form-control" value="<%= dados.nm_endereco_causa %>" />
+                    </div>                
+                </div>
+                <div class="col-xs-3">        
+                    <div class="form-group">
+                        <label for="nr_endereco_causa">Nº:</label>
+                        <input type="text" name="nr_endereco_causa" id="nr_endereco_causa" class="form-control" value="<%= dados.nr_endereco_causa %>" />
+                    </div>                
+                </div>                                
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="ds_complemento_endereco_causa">Complemento:</label>
+                        <input type="text" name="ds_complemento_endereco_causa" id="ds_complemento_endereco_causa" class="form-control" value="<%= dados.ds_complemento_endereco_causa %>" />
+                    </div>                
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="nm_bairro_endereco_causa">Bairro</label>
+                        <input type="text" name="nm_bairro_endereco_causa" class="form-control" id="nm_bairro_endereco_causa" value="<%= dados.nm_bairro_endereco_causa %>" />
+                    </div>                
+                </div>                                
+                <div class="col-xs-6">
+                    <div class="form-group">
+                    <label for="sg_uf_endereco_causa">Estado:</label>
+                        <select name="sg_uf_endereco_causa" id="sg_uf_endereco_causa" class="form-control"></select>
+                    </div>                
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="nm_cidade_endereco_causa">Cidade:</label>
+                        <select name="nm_cidade_endereco_causa" id="nm_cidade_endereco_causa" class="form-control">
+                        </select>
+                    </div>                
+                </div>                            
+                <div class="col-xs-12">
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Salvar alterações</button>
+                </div>                    
+            </form>
+        </div> 
+    </div>                                                        
+</div>
+</div>
+<%- include ../footer.ejs %>

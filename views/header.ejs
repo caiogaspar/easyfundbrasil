@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- core CSS -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="/stylesheets/animate.min.css" rel="stylesheet">
+    <link href="/stylesheets/owl.carousel.css" rel="stylesheet">
+    <link href="/stylesheets/owl.transitions.css" rel="stylesheet">
+    <link href="/stylesheets/prettyPhoto.css" rel="stylesheet">
+    <link href="/stylesheets/main.css" rel="stylesheet">
+    <link href="/stylesheets/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/default.css" />
+    <link rel="stylesheet" href="/javascripts/alertify-js/build/css/alertify.min.css" />
+    <!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+    <script type="text/javascript" src="/javascripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/javascripts/masked-input.js"></script>
+    <script type="text/javascript" src="/javascripts/general.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/alertify-js/build/alertify.min.js"></script>
+    <script type="text/javascript" src="/javascripts/cidades-estados.js/cidades-estados.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.maskmoney/dist/jquery.maskMoney.min.js"></script>
+    <script type="text/javascript">var baseURL = "<%=baseURL%>";</script>
+    <script src="/javascripts/owl.carousel.min.js"></script>
+    <script src="/javascripts/mousescroll.js"></script>
+    <script src="/javascripts/smoothscroll.js"></script>
+    <script src="/javascripts/jquery.prettyPhoto.js"></script>
+    <script src="/javascripts/jquery.isotope.min.js"></script>
+    <script src="/javascripts/jquery.inview.min.js"></script>
+    <script src="/javascripts/wow.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <title>
+        <%=page_title%>
+    </title>
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+
+    <header id="header">
+        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="<%= baseURL %>"><img src="/images/logo.png" alt="logo"></a> -->
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="<%= baseURL %>" title="Home">Home</a></li>
+                        <li><a href="<%= baseURL %>quem-somos" title="Quem Somos">Quem Somos</a></li>
+                        <li><a href="<%= baseURL %>como-funciona" title="Como Funciona">Como Funciona</a></li>
+                        <li><a href="<%= baseURL %>fale-conosco" title="Fale Conosco">Fale Conosco</a></li>
+                        <% if (session_site.hasOwnProperty('data_user')) { %>
+                            <li class="dropdown">
+                                <a href="/login" title="Minha Conta" class="orange dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                                    Minha Conta
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-minha-conta" role="menu">
+                                    <% if (session_site.data_user.cd_tipo_usuario == 2) { %>
+                                    <span class="bem-vindo">Bem-vindo, <%=session_site.data_user.especifico.nm_apoiador%></span>
+                                    <% } else if (session_site.data_user.cd_tipo_usuario == 1) { %>
+                                    <span class="bem-vindo">Bem-vindo, <%=session_site.data_user.especifico.nm_causa%></span>
+                                    <% } else if (session_site.data_user.cd_tipo_usuario == 3) { %>
+                                        <span class="bem-vindo">Bem-vindo, <%=session_site.data_user.especifico.nm_parceiro %></span>
+                                    <% } %>
+                                    <ul class="opcoes">
+                                        <li>
+                                            <% if (session_site.data_user.cd_tipo_usuario == 2) { %>
+                                                <a href="/apoiadores/editar" title="Editar meus dados"> Editar meus dados
+                                                </a>
+                                            <% } else if (session_site.data_user.cd_tipo_usuario == 1) { %>
+                                                <a href="/causas/editar" title="Editar meus dados"> Editar meus dados
+                                                </a>
+                                            <% } else if (session_site.data_user.cd_tipo_usuario == 3) { %>
+                                                <a href="/parceiros/editar" title="Editar meus dados"> Editar meus dados
+                                                </a>
+                                            <% } %>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-primary" id="logout" href="/logout">Sair</a>
+                                </div>
+                            </li>
+                            <% } else { %>
+                            <li><a href="<%= baseURL %>apoiadores/cadastro" title="Apoiar uma causa" class="orange">Apoiar</a></li>
+                            <li><a href="<%= baseURL %>causas/cadastro" title="Cadastre sua causa" class="orange">Cadastre sua causa</a></li>
+                            <li><a href="<%= baseURL %>parceiros/cadastro" title="Seja um parceiro" class="orange">Seja um parceiro</a></li>
+                            <li class="dropdown">
+                                <a href="/login" title="Entrar" class="orange dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                                    Entrar
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-login" role="menu">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="email">
+                                             <input type="text" name="email" id="email" placeholder="exemplo@exemplo.com" class="form-control" />
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">
+                                            <input type="password" name="password" id="password" placeholder="Senha" class="form-control" />
+                                            </label>
+                                        </div>
+                                    </form>
+                                    <button type="button" class="btn btn-primary" id="logar">Logar</button>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->

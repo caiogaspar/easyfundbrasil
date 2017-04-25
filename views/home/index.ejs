@@ -1,0 +1,116 @@
+<%- include ../header.ejs %>
+<<section id="main-slider">
+    <div class="owl-carousel">
+        <div class="item" style="background-image: url(images/slider/bg1.jpg);">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2><span>Ajude</span> causas comprando!</h2>
+                                <p>Isso mesmo, compre o que deseja e ao mesmo tempo ajude as causas que mais lhe agradam!</p>
+                                <a class="btn btn-primary btn-lg" href="#">Leia Mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.item-->
+         <div class="item" style="background-image: url(images/slider/bg2.jpg);">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2><span>Ajude</span> causas comprando!</h2>
+                                <p>Isso mesmo, compre o que deseja e ao mesmo tempo ajude as causas que mais lhe agradam!</p>
+                                <a class="btn btn-primary btn-lg" href="#">Leia Mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.item-->
+    </div><!--/.owl-carousel-->
+</section><!--/#main-slider-->
+<section id="services" >
+    <div class="container">
+
+        <div class="section-header">
+            <h2 class="section-title text-center wow fadeInDown">Cadastre-se já</h2>
+            <p class="text-center wow fadeInDown">Escolha uma das opções e venha se juntar a nós.</p>
+        </div>
+
+        <div class="row">
+            <div class="features">
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">                    
+                    <a href="causas/cadastro" title="Cadastre sua causa" class="link-cadastro"></a>
+                    <div class="media service-box">
+                        <div class="pull-left">
+                            <i class="fa fa-line-chart"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Causa</h4>
+                            <p>Cadastre uma causa, incentive seus amigos a comprar pelo nosso site e arrecade cada vez mais!</p>
+                        </div>
+                    </div>                    
+                </div><!--/.col-md-4-->
+
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">
+                    <a href="apoiadores/cadastro" title="Cadastre-se como apoiador!" class="link-cadastro"></a>
+                    <div class="media service-box">
+                        <div class="pull-left">
+                            <i class="fa fa-cubes"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Apoiador</h4>
+                            <p>Cadastrando-se como apoiador e comprando os produtos divulgados em nosso site você estará ajudando sua causa preferida sem nenhum custo adicional além do valor da compra!</p>
+                        </div>
+                    </div>                    
+                </div><!--/.col-md-4-->
+
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
+                    <a href="causas/cadastro" title="Cadastre sua causa" class="link-cadastro"></a>
+                    <div class="media service-box">
+                        <div class="pull-left">
+                            <i class="fa fa-pie-chart"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Patrocinador</h4>
+                            <p>Se você empresa deseja ajudar pessoas aqui é o lugar certo, cadastre-se para entrarmos em contato com você!</p>
+                        </div>                        
+                    </div>
+                </div><!--/.col-md-4-->            
+            </div>
+        </div><!--/.row-->    
+    </div><!--/.container-->
+</section><!--/#services-->
+
+<div class="container container-causas">
+    <div class="row">
+        <div class="col-xs-14">
+            <h3>Causas</h3>
+            <hr class="blocks" />
+            <ul class="causas">
+                <% for(var i=0; i<4; i++) { %>
+                <li>
+                    <img src="../images/project.jpg" alt="Project" title="Project" width="200" />
+                    <span class="titlecause"> 
+                        <a href="#" title="Casa Hope">Casa Hope</a>
+                    </span> 
+                    <p class="descricaocausa"> 
+                        <a href="#" title="Casa Hope">
+                            A casa hope foi fundada em 2011 por Alexander Ferguson. Está empenhada em ajudar crianças com cancêr e/ou portadoras do vírus HIV.
+                        </a>
+                    </p>
+                    <a href="#" title="Casa Hope">
+                        <span class="strong arrecadados">Arrecadados:</span>
+                        <span class="arrecadacao">R$ 440.000,00</span>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>
+<%- include ../footer.ejs %>

@@ -1,0 +1,42 @@
+<%- include ../header.ejs %>
+    <div class="container container-causas">
+        <h3>Causas encontradas para: <%=page_data.query%></h3>
+                        
+        <div class="row">
+            <div class="list-group">
+            <% page_data.causas.forEach(function(causa, index) { %>                             
+              <div class="list-group-item">
+                    <div class="media col-md-3">
+                        <figure class="pull-left">
+                            <%if (causa.nm_logo_causa != '') {%>
+                                <img class="media-object img-responsive"  src="/uploads/causas/<%=causa.nm_logo_causa%>" alt="<%=causa.nm_causa%>" />
+                            <% } %>
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="list-group-item-heading"><%=causa.nm_causa%></h4>
+                        <p class="list-group-item-text">
+                            <%=causa.ds_causa%>
+                        </p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h2> <%=causa.qt_apoiadores%> <small>pessoas apoiando</small></h2>
+                        <form action="/apoiadores/apoiar-causa" method="POST">
+                            <input type="hidden" name="cd_causa" value="<%=causa.id%>" />
+                            <button class="btn btn-default btn-lg btn-block btn-ajudar-causa"> Ajudar causa! </button>
+                        </form>
+<!--                        <div class="stars">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
+                        <p> Average 4.5 <small> / </small> 5 </p>-->
+                    </div>
+              </div>            
+            <% }); %>
+            </div>
+        </div>
+    </div>
+<%- include ../footer.ejs %>

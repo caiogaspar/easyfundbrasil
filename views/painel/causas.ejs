@@ -1,0 +1,30 @@
+<%- include ../header.ejs %>
+
+<div class="container container-causas">
+    <div class="row">
+        <div class="col-xs-14">
+            <h3>Causas</h3>
+            <hr class="blocks" />
+            <ul class="causas">
+                <% for(var i=0; i<4; i++) { %>
+                <li>
+                    <img src="../images/project.jpg" alt="Project" title="Project" width="200" />
+                    <span class="titlecause"> 
+                        <a href="#" title="Casa Hope">Casa Hope</a>
+                    </span> 
+                    <p class="descricaocausa"> 
+                        <a href="#" title="Casa Hope">
+                            A casa hope foi fundada em 2011 por Alexander Ferguson. Está empenhada em ajudar crianças com cancêr e/ou portadoras do vírus HIV.
+                        </a>
+                    </p>
+                    <a href="#" title="Casa Hope">
+                        <span class="strong arrecadados">Arrecadados:</span>
+                        <span class="arrecadacao">R$ 440.000,00</span>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>
+<%- include ../footer.ejs %>
